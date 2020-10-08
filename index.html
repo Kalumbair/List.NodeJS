@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<head>
+    <title>Список делишек</title>
+</head>
+<body>
+    <h1>Список  дел</h1>
+    <ol id="list">
+
+    </ol>
+    <script>
+        const todo_list = document.querySelector('#list');
+        fetch('/list')
+        .then(res => res.json())
+        .then(result => {
+            for(let e of result)
+            {
+                let a = document.createElement('li');
+                a.innerHTML = `<p style="color:${e.completed ? 'green' : 'red'}">${e.text}</p>`;
+                todo_list.append(a);
+            }
+        });
+    </script>
+</body>
