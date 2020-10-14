@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <head>
-    <title>Список делишек</title>
+    <title>Сообщения</title>
 </head>
 <body>
-    <h1>Список  дел</h1>
-    <ol id="list">
+    <h1>Список сообщений</h1>
+    <ul id="list">
 
-    </ol>
+    </ul>
     <script>
         const todo_list = document.querySelector('#list');
         fetch('/list')
@@ -15,7 +15,7 @@
             for(let e of result)
             {
                 let a = document.createElement('li');
-                a.innerHTML = `<p style="color:${e.completed ? 'green' : 'red'}">${e.text}</p>`;
+                a.innerHTML = `<p>${e.author}: ${e.text}</p>`;
                 todo_list.append(a);
             }
         });

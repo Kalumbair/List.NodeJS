@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
             req.on('data', (chunk) => {
                 
                 let obj = JSON.parse(chunk.toString('UTF-8'));
-                if(!obj && !obj.text && !obj.completed)
+                if(!obj && !obj.text && !obj.author)
                 {
                     res.statusCode = 400;
                     res.end();
